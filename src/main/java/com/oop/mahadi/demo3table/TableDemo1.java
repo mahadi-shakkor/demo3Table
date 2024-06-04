@@ -88,4 +88,14 @@ ArrayList<Stu > skk=new ArrayList<>();
         }
     }
 
+    @FXML
+    public void RemoveButtonOnAction(ActionEvent actionEvent) {
+        ObservableList<Stu> s1,s2;
+        s1=TableViewFcid.getItems();
+        s2=TableViewFcid.getSelectionModel().getSelectedItems();
+        s2.forEach(s1::remove);
+
+
+
+    }
 }
