@@ -22,7 +22,7 @@ public class Stu {
         this.name = name;
     }
 
-    public int getId() {
+    public int getIds() {
         return id;
     }
 
@@ -36,6 +36,9 @@ public class Stu {
 
     public void setMarks(int marks) {
         this.marks = marks;
+    }
+
+    public Stu() {
     }
 
     public Stu(String name, int id, int marks) {

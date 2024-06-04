@@ -9,6 +9,9 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class TableDemo1 {
     Stu s1,s2;
     @FXML
@@ -19,9 +22,9 @@ public class TableDemo1 {
     public void initialize() {
         s1 = new Stu("Mahadi",3,33);
         s2 = new Stu("Mahadi2",33,33);
-         name.setCellValueFactory (new PropertyValueFactory<Stu,String>("name"));
-        id.setCellValueFactory (new PropertyValueFactory<Stu,Integer>("id"));
-        marks.setCellValueFactory (new PropertyValueFactory<Stu,Integer>("marks"));
+         name.setCellValueFactory (new PropertyValueFactory<Stu,String>("Name"));
+        id.setCellValueFactory (new PropertyValueFactory<Stu,Integer>("Ids"));
+        marks.setCellValueFactory (new PropertyValueFactory<Stu,Integer>("Marks"));
         // Create an ObservableList and add your Stu objects to it
         ObservableList<Stu> stuList = FXCollections.observableArrayList(s1, s2);
 
@@ -61,6 +64,28 @@ public class TableDemo1 {
         idTextFild.clear();
         marksTextFild.clear();
 
+    }
+
+ArrayList<Stu > skk=new ArrayList<>();
+    @FXML
+    public void ShowOnAction(ActionEvent actionEvent) {
+        // Clear the ArrayList to avoid duplication
+        skk.clear();
+
+        // Loop through the items in the TableView and add them to the ArrayList
+        for (int i = 0; i < TableViewFcid.getItems().size(); i++) {
+            Object o=TableViewFcid.getItems().get(i);
+            if (o instanceof Stu) {
+                skk.add((Stu) o);
+            } else {
+                // Handle the case where the item is not of type Stu
+            }
+
+
+        }
+        for (int i=0;i< skk.size();i++){
+            System.out.println(skk.get(i).toString());
+        }
     }
 
 }
